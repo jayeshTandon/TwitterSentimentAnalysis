@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-wid th, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Sentiment Analysis | Home</title>
+    <script>
+        window.addEventListener('load', function() {
+            document.getElementsByClassName('loader')[0].style.display = 'none';
+        });
+        
+      </script>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinnerModal">
+            <h2>Processing</h2>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <div class="heading">
+        <h1><span><img id="logoImg" src="../static/twitter.png" alt=""></span>Twitter Sentiment Analysis</h1>
+    </div>
+
+    <div class="inputArea">
+        <form action="/predict" method="post" name="input-form">
+            <input required type="text" name="keyword" id="keyword" placeholder="Keyword..." oninvalid="this.setCustomValidity('Please give the required\nkeyword to search tweets.')" oninput="this.setCustomValidity('')">
+            <select required name="tweetCounts" id="tweetsCount" oninvalid="this.setCustomValidity('Please select the number of\ntweets to analyse.')" oninput="this.setCustomValidity('')">
+                <option selected disabled value="">Number of Tweets</option>
+                <option value="1">100</option>
+                <option value="2">200</option>
+                <option value="3">300</option>
+                <option value="4">400</option>
+                <option value="5">500</option>
+            </select>
+            <div id="submitButton">
+                <input onclick="showLoader()" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>     
+
+    <div id="error">
+        <h2>{{error}}</h2>
+    </div>
+
+    <script>
+        function showLoader() {
+            const form = document.querySelector('form');
+            const keywordInput = document.getElementById('keyword');
+            const tweetCountsInput = document.getElementById('tweetsCount');
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                if (!keywordInput.value) {
+                    keywordInput.setCustomValidity('Please give the required keyword to search tweets.');
+                    keywordInput.reportValidity();
+                    return;
+                }
+
+                if (!tweetCountsInput.value) {
+                    tweetCountsInput.setCustomValidity('Please select the number of tweets to analyse.');
+                    tweetCountsInput.reportValidity();
+                    return;
+                }
+
+                if(tweetCountsInput.value >= 3) {
+                    alert("Large Number of Tweets may take a little longer to process.") ;
+                }
+
+                document.getElementsByClassName('loader')[0].style.display = 'block';
+                form.submit() ;
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

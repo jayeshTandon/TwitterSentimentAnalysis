@@ -1,0 +1,333 @@
+body
+{
+  background-image: url('dddepth-317.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+
+  font-family: 'Roboto mono', Arial, Helvetica, sans-serif ;
+}
+
+.heading > h1
+{
+  padding-top: 1em;
+  text-align: center;
+  font-size: 70px;
+}
+
+#logoImg
+{
+  width: 70px;
+  margin-right: 5px;
+  margin-bottom: 15px;
+}
+
+.output, #submitButton, .inputArea
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* keyword input styling */
+.inputArea input[type=text] {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid lightgrey;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0px 0px 20px -18px;
+}
+
+.inputArea input[type=text]:hover {
+  border: 2px solid lightgrey;
+  box-shadow: 0px 0px 20px -17px;
+}
+
+.inputArea input[type=text]:active {
+  transform: scale(0.95);
+}
+
+.inputArea input[type=text]:focus {   
+  border: 2px solid grey;
+}
+
+/* submit button styling */
+.inputArea input[type=submit] {
+  padding: 1em 2em;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-family:Arial, Helvetica, sans-serif;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none; 
+  margin-top: 1rem;
+}
+
+.inputArea input[type=submit]:hover {
+  /* background-color: #dae6fe; */
+  box-shadow: 5px 5px 8px #3030308f ;
+}
+
+.inputArea input[type=submit]:active {
+  transform: translateY(-5px);
+}
+
+.inputArea select
+{
+  padding: 1em;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  color: black;
+  background-color: white;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease 0s;
+
+  margin-left: 1rem;
+}
+
+.inputArea select:hover
+{
+  box-shadow: 5px 5px 8px #3030308f ;
+}
+
+.inputArea select:active
+{
+  transform: scale(0.95);
+}
+
+/* Output Styling */
+#error
+{
+  text-align: center;
+  display: block;
+  margin: 2em auto;
+  text-decoration: underline;
+  width: fit-content;
+  padding: 10px;
+}
+
+#error>h2
+{
+  display: inline-block;
+}
+
+.output
+{
+    text-align: center;
+    padding: 1.5em;
+    font-size: 1.5em ;
+    font-weight: bold;
+}
+
+.outputContent
+{
+  margin: auto ;
+  width: fit-content;
+}
+
+#r1
+{
+  background-color: rgb(255,255,255,0.5) ;
+  padding: 10px;
+  box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2); 
+  border-radius: 10px 0 0 10px;
+}
+
+#r2
+{
+  background-color: rgb(255,255,255,0.5) ;
+  padding: 10px;
+  box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 0 10px 10px 0;
+}
+
+.wordcloud
+{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+  
+.card {
+  background-color: rgba(35,88,223, 0.44) !important;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin: 1em;
+}
+  
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  background-color: rgba(180, 68, 122, 0.435) !important;
+}
+
+.card-text {
+  padding: 10px 16px;
+  font-size: larger;
+  text-align: center;
+  font-weight: 500;
+}
+
+.navButtons
+{
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.navButtons a
+{
+  text-decoration: none;
+}
+
+.navButtons button
+{
+  background-color: #ccdefe;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px ;
+  border: none;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.navButtons button:hover
+{
+  box-shadow: 5px 8px 16px rgba(0,0,0,0.4);
+  cursor: pointer ;
+}
+
+.loader
+{
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden ;
+}
+
+.spinnerModal
+{
+  height: 22vh;
+  width: 28vw;
+  /* background-color: rgba(205, 203, 203, 0.8) ; */
+  background-image: url(dddepth-317.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 15em;
+  right: 0;
+  margin: auto;
+  border-radius: 30px ;
+}
+
+.spinnerModal > h2
+{
+  text-align: center;
+  position: relative;
+  top: 10px;
+}
+
+.spinner
+{
+  height: 50px;
+  width: 50px;
+  border: 7px solid rgb(187, 118, 118);
+  border-top-color: #0c0b0c ;
+  border-bottom-color: #0b0b0c ;
+  border-left-color: rgb(173, 62, 131);
+  border-right-color: rgb(173, 62, 131);
+  border-radius: 40%;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  animation: spin 0.9s infinite linear;
+}
+
+@keyframes spin {
+  100%
+  {
+    transform: rotate(360deg);
+  }
+}
+
+/* View Tweets Button */
+
+.viewTweets
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.viewTweets button
+{
+  border: none ;
+  background-color: rgba(35,88,223, 0.44);
+  padding: 5px 15px;
+  font-size: larger;
+  font-weight: 500;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s ; 
+}
+
+.viewTweets button:hover
+{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  background-color: rgba(180, 68, 122, 0.575);
+}
+
+/* View Tweets Page */
+
+table
+{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th
+{
+  background-color:  rgba(28, 74, 192, 0.5);
+  padding: 10px;
+  font-size: 30px;
+  text-align: center !important;
+}
+
+tr:hover
+{
+  background-color:  rgba(28, 74, 192, 0.5);
+}
+
+table td
+{
+  padding: 10px;
+  background-color:  #7980e763 ;
+}
+
+th:nth-child(1), td:nth-child(1) 
+{
+  text-align: center;
+}
